@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'ibmvga8';
+  src: url('Px437_IBM_VGA8.ttf') format('truetype');
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+zip-viewer {
+  display: block;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+  background: #0000a8;
+  color: white;
+  user-select: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+zip-viewer header {
+  flex: 0;
+}
+zip-viewer zip-viewer-preview {
+  flex: 1;
+  display: block;
+  overflow: auto;
+  border-top: 3px double yellow;
+  margin-top: 2px;
+  font-family: ibmvga8, monospace;
+}
+zip-viewer zip-viewer-preview img {
+  object-fit: contain;
+  max-height: calc(100% - 10px);
+  margin: 5px auto;
+  display: block;
+  border: 1px solid grey;
+}
+zip-viewer-file,
+zip-viewer-directory {
+  position: relative;
+  padding-left: 1em;
+  white-space: nowrap;
+}
+zip-viewer>zip-viewer-directory {
+  flex: 1;
+  display: block;
+  overflow: auto;
+  font-family: ibmvga8, monospace;
+}
+zip-viewer zip-viewer-directory[collapsed]>zip-viewer-file,
+zip-viewer zip-viewer-directory[collapsed]>zip-viewer-directory {
+  display: none;
+}
+zip-viewer>zip-viewer-directory zip-viewer-directory {
+  display: block;
+  margin-left: 1em;
+}
+zip-viewer zip-viewer-directory {
+  border-left: 1px solid rgba(255,255,255,.6);
+  display: block;
+}
+zip-viewer zip-viewer-file {
+  display: block;
+  border-left: 1px solid rgba(255,255,255,.6);
+  margin-left: 1em;
+  color: #c0c0c0;
+}
+zip-viewer zip-viewer-file label {
+  color: white;
+  pointer-events: none;
+}
+zip-viewer zip-viewer-directory>label {
+  display: inline-block;
+  pointer-events: none;
+  width: calc(100% - 1em);
+}
+zip-viewer zip-viewer-directory:hover {
+  cursor: pointer;
+}
+zip-viewer zip-viewer-directory:hover>label {
+  background: #00a80088;
+}
+zip-viewer zip-viewer-file:hover {
+  background: #00a80088;
+  cursor: pointer;
+}
+zip-viewer zip-viewer-directory[selected]>label,
+zip-viewer zip-viewer-file[selected] {
+  background: #a8a800;
+  cursor: pointer;
+}
+zip-viewer zip-viewer-directory[selected]:hover>label,
+zip-viewer zip-viewer-file[selected]:hover {
+  background: #cccc00;
+}
+zip-viewer zip-viewer-directory::before,
+zip-viewer zip-viewer-file::before {
+  content: '–';
+  display: inline-block;
+  width: 1em;
+  color: rgba(255,255,255,.6);
+  height: 1em;
+  position: absolute;
+  left: 0;
+}
+zip-viewer zip-viewer-directory[collapsed]::before {
+  content: '+';
+}
+
