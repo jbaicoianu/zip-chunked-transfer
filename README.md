@@ -9,6 +9,9 @@ In theory, this should work with a wide variety of zip-based file formats, for i
  * .xlsx
  * ...many others
 
+# Example
+https://jbaicoianu.github.io/zip-chunked-transfer/example.html
+
 # Requirements
 * In order for chunked zip loading to work, the server or CDN that hosts the .zip must support HTTP Range requests.
 * In order to load zip files hosted on remote-origin servers, the server must send an appropriate `Access-Control-Allow-Origin` header.
